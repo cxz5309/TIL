@@ -15,7 +15,7 @@
 브라우저(Chrome, Firefox, Safari, IE 등)에서 사용자 인터페이스 즉, UI를 구성하는데는 위와 같은 과정을 거친다.  
 <br>
 
-여기서 렌더링 엔진의 동작 과정은
+여기서 렌더링 엔진의 동작 과정을 자세히 살펴보면  
 ![웹킷 동작 과정](https://d2.naver.com/content/images/2015/06/helloworld-59361-3.png)  
 웹킷 동작 과정  
 ![모질라의 게코 렌더링 엔진 동작 과정](https://d2.naver.com/content/images/2015/06/helloworld-59361-4.png)   
