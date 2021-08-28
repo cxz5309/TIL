@@ -7,18 +7,18 @@
 즉, 현재 많이 활용되고 있는, 웹/앱의 View를 개발할 수 있도록 하는 인기있는 라이브러리라고 볼 수 있다.
 
 ## 리액트의 특징
-## 1. 가상 돔
+## 1. 가상 돔(Virtual DOM)
 리액트는 가상 돔을 사용하여 웹 애플리케이션의 성능을 극대화 시켰다.  
 가상 돔을 이해하기 위해서는 우선 HTML과 CSS가 렌더링(Rendering) 되는 과정을 이해해야 하는데  
 ### 브라우저의 UI 연산 과정
-![브라우저의 UI 연산 과정](../../private/React/helloworld-59361-1.png)  
+![브라우저의 UI 연산 과정](https://d2.naver.com/content/images/2015/06/helloworld-59361-1.png)  
 브라우저(Chrome, Firefox, Safari, IE 등)에서 사용자 인터페이스 즉, UI를 구성하는데는 위와 같은 과정을 거친다.  
 <br>
 
 여기서 렌더링 엔진의 동작 과정은
-![웹킷 동작 과정](../../private/React/helloworld-59361-3.png)  
+![웹킷 동작 과정](https://d2.naver.com/content/images/2015/06/helloworld-59361-3.png)  
 웹킷 동작 과정  
-![모질라의 게코 렌더링 엔진 동작 과정](../../private/React/helloworld-59361-4.png)   
+![모질라의 게코 렌더링 엔진 동작 과정](https://d2.naver.com/content/images/2015/06/helloworld-59361-4.png)   
 모질라의 게코 렌더링 엔진 동작 과정  
 
 [참고] https://d2.naver.com/helloworld/59361
@@ -42,7 +42,7 @@ html파일을 해석하여 트리 구조로 관계를 정의하고, 조작할 �
 이러한 구조 덕분에 거대한 DOM 트리에서는 속도 이슈가 발생하였고 지속적인 DOM 업데이트는 잦은 오류와 사용자 인터페이스에 악영향을 끼쳤다.  
 또한 DOM을 제대로 찾지 못한다면 코드를 분석하려고 다시 거대한 HTML을 들여다 봐야 하는 단점이 존재했다.  
 
-### 가상 돔(Virtual DOM)
+### 가상 돔 연산 과정
 
 [react.js.org 가상 돔](https://ko.reactjs.org/docs/faq-internals.html#gatsby-focus-wrapper)
 
@@ -53,6 +53,6 @@ html파일을 해석하여 트리 구조로 관계를 정의하고, 조작할 �
 <br>
 
 하지만, 가상 돔 같은 경우 이러한 변화의 양을 한번에 묶어서 최종적으로 계산된 레이아웃의 정보만 실제 DOM에게 던져주게 된다. 이렇게 되면 브라우저의 연산 양이 기존보다 적어지게 되므로 자연스럽게 사용자에게 보다 쾌적한 UI 경험을 제공할 수 있게 된다.
-![가상 돔](../../private/React/virtual_DOM.jpg)
+![가상 돔 렌더 방식](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbsK2db%2FbtqCoR6Sefb%2FbWCCnmtGeZKkabCwwxBCn0%2Ftfile.svg)
 
 React 뿐만아니라 Vue또한 이러한 Virtual DOM 방식을 채택하였다.
