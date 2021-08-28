@@ -1,0 +1,6 @@
+# img
+*.jpg
+*.png
+
+# private
+/private
