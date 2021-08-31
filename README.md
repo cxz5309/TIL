@@ -6,6 +6,8 @@
 - ### [HTML 개요](/HTML/HTML_개요/README.md)
 - ### [텍스트 요소](/HTML/텍스트%20요소/README.MD)
 - ### [구조를 나타내는 요소](/HTML/구조를%20나타내는%20요소/README.MD)
+- ### [목록과 표](/HTML/목록과%20표/README.MD)
+- ### [임베디드 요소](/HTML/임베디드%20요소/README.MD)
 
 # React
 - ### [React 개요](/React/리액트_개요/README.MD)
