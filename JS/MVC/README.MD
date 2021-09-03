@@ -33,11 +33,7 @@
 const main = () =>{
     const model = new Model(storage);
     const views = {
-        searchFormView: new SearchFormView(),
-        searchResultView: new SearchResultView(),
-        tabView: new TabView(),
         keywordListView: new KeywordListView(),
-        historyListView: new HistoryListView(),
     }
     new Controller(store, views);
 }
@@ -50,22 +46,14 @@ export default class Controller {
   constructor(
     store,
     {
-      searchFormView,
-      searchResultView,
-      tabView,
       keywordListView,
-      historyListView,
     }
   ) {
     console.log(tag, "constructor");
 
     this.store = store;
 
-    this.searchFormView = searchFormView;
-    this.searchResultView = searchResultView;
-    this.tabView = tabView;
     this.keywordListView = keywordListView;
-    this.historyListView = historyListView;
 
     this.subscribeViewEvents()
     this.render();
@@ -73,7 +61,7 @@ export default class Controller {
 ...
 ```
 보통 Controller의 constructor(생성자)에는 render 함수가 있어 Model을 View로 바로 연결하고, View를 화면에 송출해준다.  
-> - Model 내용이 변경되더라도 별다른 수정 없이 View를 바꾸어 줄 수 있다
+> - Model 내용이 변경되더라도 별다른 수정 없이 View를 바꾸어 줄 수 있다(코드의 재사용성, 생산성)
 
 ### - Model
 ```
@@ -114,6 +102,40 @@ export default class View {
 
     return this;
   }
+
+```
+
+```
+export default class KeywordListView extends View{
+    constructor(element = qs('#keyword-list-view'), template = new Template()){
+        console.log(tag, "constructor");
+        super(element);
+
+        this.template = template;
+        this.bindEvents();
+    }
+}
+
+class Template{
+    getEmptyMessage(){
+        return `<div class='empty-box'>추천 검색어가 없습니다</div>`
+    }
+
+    getList(data = []){
+        return `
+        <ul class='list'>
+            ${data.map(this._getItem).join('')}
+        </ul>`
+    }
+
+    _getItem({id, keyword}){
+        return `
+        <li data-keyword=${keyword}>
+            <span class='number'>${id}</span>
+            ${keyword}
+        </li>`
+    }
+}
 ```
 렌더링되는 상황에서의 동작을 정의하거나 View를 가지고 있다  
 
