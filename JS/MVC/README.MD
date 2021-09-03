@@ -19,16 +19,105 @@
 
 ### VIEW 
 - 앱의 데이터를 보여주는 방식을 정의한다.
-> - 주로 렌더링되는 상황에서의 작업, 렌더링되는 데이터를 모델로부터 받아오는 역할을 수행한다.
+> - 주로 렌더링되는 상황에서의 작업 알고리즘이 존재, 렌더링되는 데이터를 모델로부터 받아오거나 생성하여 보여지는 View를 정의한다.
+> - 컨트롤러 하위에 종속되어 컨트롤러가 보여주려고 하는 View를 모두 가지고 있다.
 
 ### CONTROLLER
 - 앱의 사용자로부터 입력에 대한 응답을 한다.
 > - 이때 입력은 다양한 경우를 포함하는데, GET/ POST등의 페이지 입력이나 DOM 이벤트까지도 다양한 상황에서의 입력을 처리한다.
 > - 동적으로 모델/ 뷰를 업데이트하며 다양한 처리 동작을 한다.
-> - 보통 모델을 1차 처리하여 뷰로 전송한다.
+> - 보통 Model을 1차 처리하여 View로 전송한다.(Model과 View의 중개인 역할)
 
+### 간단한 앱을 통한 mvc 패턴 예시
+```
+const main = () =>{
+    const model = new Model(storage);
+    const views = {
+        searchFormView: new SearchFormView(),
+        searchResultView: new SearchResultView(),
+        tabView: new TabView(),
+        keywordListView: new KeywordListView(),
+        historyListView: new HistoryListView(),
+    }
+    new Controller(store, views);
+}
+```
+Model과 View를 Controller가 받아와서 사용한다.  
 
+```
+### - Controller
+export default class Controller {
+  constructor(
+    store,
+    {
+      searchFormView,
+      searchResultView,
+      tabView,
+      keywordListView,
+      historyListView,
+    }
+  ) {
+    console.log(tag, "constructor");
+
+    this.store = store;
+
+    this.searchFormView = searchFormView;
+    this.searchResultView = searchResultView;
+    this.tabView = tabView;
+    this.keywordListView = keywordListView;
+    this.historyListView = historyListView;
+
+    this.subscribeViewEvents()
+    this.render();
+  }
+...
+```
+보통 Controller의 constructor(생성자)에는 render 함수가 있어 Model을 View로 바로 연결하고, View를 화면에 송출해준다.  
+> - Model 내용이 변경되더라도 별다른 수정 없이 View를 바꾸어 줄 수 있다
+
+### - Model
+```
+export default class Store {
+  constructor() {
+    console.log(tag, "constructor");
+
+    if (!storage) throw "no storage";
+
+    this.storage = {
+      keywordData: [
+        { id: 1, keyword: "샐러드" },
+        { id: 2, keyword: "커리" },
+        { id: 3, keyword: "햄버거" },
+      ],
+      ...
+    }
+
+    this.searchKeyword = '';
+    this.searchResult = [];
+    this.selectedTab = TabType.KEYWORD;
+  }
+}
+```
+주로 데이터의 형태를 정의한다. 데이터는 직접 가지고 있지 않을 수도 있다.(보통 가지고 있지 않음)  
+
+### - View
+
+```
+export default class View {
+  constructor(element) {
+    console.log(tag, "constructor");
+
+    if (!element) throw "no element";
+
+    this.element = element;
+    this.originalDisplay = this.element.style.display || "";
+
+    return this;
+  }
+```
+렌더링되는 상황에서의 동작을 정의하거나 View를 가지고 있다  
+
+##
 <!-- TODO
-- 간단한 리액트 예제를 통해 역할 설명
 - 비슷한 장고 MTV 모델과의 비교
 - MVP, MVVM 모델과의 비교 -->
