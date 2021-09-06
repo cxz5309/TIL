@@ -12,6 +12,10 @@
 - ### [메타데이터 요소](HTML/메타데이터%20요소/README.MD)
 - ### [전역 속성](HTML/전역%20속성/README.MD)
 
+# CSS
+- ### [CSS 개요](CSS/CSS%20개요.md)
+- ### [선택자](CSS/선택자.md)
+
 # JS
 - ### [MVC패턴의 진화와 파생 패턴](JS/MVC패턴의%20진화와%20파생%20패턴/README.MD)
 - ### [다크모드](JS/다크모드/README.MD)
