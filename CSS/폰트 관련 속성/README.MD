@@ -19,6 +19,8 @@
 - 전역 값([선택자](../선택자/README.md)에서 추가 설명)  
 `inherit, initial, unset`
 
+---
+
 ## 폰트 스타일
 - 거의 이탤릭체를 위해 사용
 ```
@@ -29,6 +31,8 @@
 ```
 `oblique` : 이탤릭체와 비슷하나 브라우저 스타일에 따라 이탤릭체가 더 필기체같은 경우가 많다.
 
+
+---
 
 ## 폰트 굵기
 - 거의 볼트체를 위해 사용
@@ -41,6 +45,8 @@
 - lighter, bolder로 더 얇고 굵은 체를 지원한다.
 
 
+---
+
 ## 글꼴
 
 - 여러 개의 폰트 중 먼저 있는 폰트를 적용하고, 만약 사용자의 컴퓨터에 다운되지 않았거나, 지원되지 않는 언어일 경우 차례대로 뒤에 있는 폰트를 사용한다.
@@ -50,6 +56,8 @@
 font-family: Times, Georgia
 }
 ```
+
+---
 
 ## 줄간격
 
@@ -71,6 +79,8 @@ font-family: Times, Georgia
 - 전역 값([선택자](../선택자/README.md)에서 추가 설명)  
 `inherit, initial, unset`
 
+---
+
 ## font(CSS단축 속성)
 -여러 가지 속성을 한줄로 묶어서 표현
 - 필수 요소  
@@ -85,6 +95,8 @@ font-family: Times, Georgia
 - **작성하지 않으면 '기본값을 적용한다'라는 의미가 되므로 추가로 작성시 font보다 아래쪽에 넣어야 한다.**  
 - 순서  
 `font-style font-weight font-size/ line-height 무조건 맨 뒤에 font-family`
+
+---
 
 ## 여백 크기
 ```
@@ -104,6 +116,8 @@ font-family: Times, Georgia
 > %  
 
 
+---
+
 ## 정렬
 ```
 .text{
@@ -115,6 +129,8 @@ font-family: Times, Georgia
 ### 값에 들어갈 수 있는 항목
 `start, end, center, right, left, justify, justify-all, match-parent`
 > justify : 왼쪽과 오른쪽 열에 맞추어 화면을 늘어뜨림
+
+---
 
 ## 들여쓰기
 ```
@@ -136,6 +152,8 @@ font-family: Times, Georgia
 `each-line` : 들여쓰기는 블록 컨테이너의 첫 번째 줄과 강제 줄 바꿈 후의 각 줄에 영향을 준다  
 `hanging` : 들여쓴 줄을 반전시킨다. 첫 번째 줄을 제외한 모든 줄이 들여쓰기된다.  
 
+
+---
 
 ## text-decoration(CSS단축 속성)
 - font속성과 달리 거의 대부분 단축 속성으로써 사용한다.
@@ -178,12 +196,16 @@ span{
 `&#60;length>` : 단위값  
 `%` : 1em의 백분율로 비율 설정    
 
+---
+
 ## word-break
 - 텍스트가 자신의 콘텐츠 박스 밖으로 오버플로 할 때 줄을 바꿀지 지정한다.  
 `normal` : 기본값  
 `break-all` : 보통 영어에만 사용, 줄을 바꿀때 단어를 끊는다.  
 `keep-all` : 보통 한중일 텍스트에 사용(lang='en'의 default값) , 줄을 바꿀때 단어를 끊지 않는다.  
 
+
+---
 
 ## text–transform
 대문자, 소문자
