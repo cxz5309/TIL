@@ -13,8 +13,10 @@
 - ### [전역 속성](HTML/전역%20속성/README.MD)
 
 # CSS
-- ### [CSS 개요](CSS/CSS%20개요.md)
-- ### [선택자](CSS/선택자.md)
+- ### [CSS 개요](CSS/CSS%20개요/README.md)
+- ### [선택자](CSS/선택자/README.md)
+- ### [폰트 관련 속성](CSS/폰트%20관련%20속성/README.MD)
+- ### [단위와 값](CSS/단위와%20값/README.MD)
 
 # JS
 - ### [MVC패턴의 진화와 파생 패턴](JS/MVC패턴의%20진화와%20파생%20패턴/README.MD)
