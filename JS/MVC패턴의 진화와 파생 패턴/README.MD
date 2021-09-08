@@ -150,7 +150,7 @@ class Template{
 > Model, View, Controller를 이어주는 화살표가 설명하는 글마다 다르고 제멋대로인 것이다..  
 > 이유를 알아보기로 하였다.  
 
-![MVC 패턴 검색결과](../../public/JS/mvc패턴검색결과.png)
+![MVC 패턴 검색결과](../../public/JS/mvc_search.PNG)
 (MVC 패턴 검색 결과)  
 조금 조사해보면 알겠지만 화살표가 진짜 다 제멋대로이다.  
 
@@ -164,14 +164,14 @@ https://maverick2k.tistory.com/201
 - 디자인 패턴이 결국 개발 과정에서 자주 발생하는 문제를 해결하는 방법을 패턴화한 것이므로 디자인 패턴은 시대에 따라 변화하고, 발전할 수 있다.
 > 그 예라고 할 수 있을진 모르겠으나 자바 spring의 탄생 배경을 알아보면 프로그래밍 기술의 패러다임 변경과 발전을 느낄 수 있다.  
 - 또한 패턴이란 것이 정해진 기술이 아니므로 구현에 따라, 사람의 관점에 따라 말해지는 것이 달라지기도 한다.
-> [페이스북조차 MVC 패턴에 대한 관점이 다르다](https://blog.coderifleman.com/2015/06/19/mvc-does-not-scale-use-flux-instead/)
-> 아무튼 이래서 Flux 패턴을 보완한 React의 Redux가 탄생하였다.
+> [페이스북조차 MVC 패턴에 대한 관점이 다르다](https://blog.coderifleman.com/2015/06/19/mvc-does-not-scale-use-flux-instead/)  
+> 아무튼 이래서 Flux 패턴을 보완한 React의 Redux가 탄생하였다.  
 
 ![MVC2](https://media.prod.mdn.mozit.cloud/attachments/2018/06/08/16042/090bb2d2be010d2d547684a2d9ee41aa/model-view-controller-light-blue.png)  
 출처: https://developer.mozilla.org/ko/docs/Glossary/MVC  
-이후에는 이런 느낌이 된 것 같다.  
+이후에는 이런 느낌이 된 것 같다.   
 <br>
-하지만 역시 ~~우리가 알고있는~~(내가 알고있는) MVC패턴과 화살표가 조금 다르다.(MODEL -> VIEW)  
+하지만 역시 ~~우리가 알고있는~~(내가 알고있는) MVC패턴과 화살표가 조금 다르다.  (MODEL -> VIEW)  
 
 - 이때까지의 MVC 패턴에서 Controller의 역할은 Model을 업데이트하고, Model을 나타내줄 View를 선택하기만 할 뿐이었다.  
 - 따라서 View는 Model을 이용하여 화면을 나타내게 된다.

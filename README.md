@@ -11,6 +11,7 @@
 - ### [폼 요소](HTML/폼%20요소/README.MD)
 - ### [메타데이터 요소](HTML/메타데이터%20요소/README.MD)
 - ### [전역 속성](HTML/전역%20속성/README.MD)
+- ### [그 외 새로 알게된 점](HTML/그%20외%20새로%20알게된%20점/readme.md)
 
 # CSS
 - ### [CSS 개요](CSS/CSS%20개요/README.md)
