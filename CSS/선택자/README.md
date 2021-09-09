@@ -142,7 +142,7 @@
 
 ---
 
-## 상속 제어 <a id=inheritance>#</id>
+## 상속 제어 <a id=inheritance>#</a>
 - 부모와의 상속 값을 제어한다.     
 `*{div: initial}`   
 
@@ -168,9 +168,9 @@
 ### 명시도 순서
 - 위쪽부터 순서대로 덮어쓰는 순서
 1. !important
-2. inline
+2. 태그에 inline으로 style 속성 지정
 3. id
 4. class/att/ pseudo
-5. type
+5. type(태그 이름)
 6. &#42;	
 7. inherited
