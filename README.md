@@ -21,6 +21,8 @@
 - ### [박스 모델](CSS/박스%20모델/README.MD)
 - ### [색상과 배경](CSS/색상과%20배경/README.MD)
 - ### [transform](CSS/transform/README.MD)
+- ### [transition](CSS/transition/README.MD)
+- ### [애니메이션](CSS/애니메이션/README.MD)
 
 # JS
 - ### [MVC패턴의 진화와 파생 패턴](JS/MVC패턴의%20진화와%20파생%20패턴/README.MD)
