@@ -34,7 +34,7 @@ transition-timing-function: ease
 ## `<time>`
 - s : 세컨드
 - ms : 밀리세컨드 
-> 소수점, 마이너스 가능
+> 소수점, 마이너스 입력이 가능하나 속성의 룰에 따라 인식하지 못하거나 문제가 생기는 경우가 있다.
 
 
 ## transition-delay
@@ -42,8 +42,8 @@ transition-timing-function: ease
 - `<time>`만큼 transition의 시작이 지연된다.
 
 ## transition-timing-function
-> - 유니티에서 ease사용하던것과 같다.
-> - 그러나 바리에이션이 유니티만큼 많지는 않고 직접 설정해야 하는듯
+> - 유니티에서 ease사용하던것과 같다.  
+> - 그러나 바리에이션이 유니티만큼 많지는 않고 직접 설정해야 하는듯  
 변화율 그래프 : https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function
 
 ### 값
