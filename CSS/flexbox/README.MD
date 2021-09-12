@@ -1,9 +1,9 @@
 # flexbox
-> 이해하기 힘들고 규칙도 외우기 힘든 float나 다른 레이아웃 요소들을 안 써도 되게 하는 갓 시스템
-> 그래서 개발자들이 매우 많이 사용하고 중요하다
-> css3부터 추가되었다.
->> 매우 도움되는 사이트 : https://flexboxfroggy.com/#ko
->> 사실 사용할 때마다 여기 보고 했는데 이번 기회에 제대로 외워두어야겠다.
+> 이해하기 힘들고 규칙도 외우기 힘든 float나 다른 레이아웃 요소들을 안 써도 되게 하는 갓 시스템  
+> 그래서 개발자들이 매우 많이 사용하고 중요하다  
+> css3부터 추가되었다.  
+>> 매우 도움되는 사이트 : https://flexboxfroggy.com/#ko  
+>> 사실 사용할 때마다 여기 보고 했는데 이번 기회에 제대로 외워두어야겠다.  
 
 ```
 .container{
@@ -18,7 +18,7 @@
   border: 3px solid blue;
 }
 ```
->이것만 해도 엄청 유용한 기능임에 틀림없다.
+>이것만 해도 엄청 유용한 기능임에 틀림없다.  
 
 ## flex container, flex item, main axis, cross axis
 - flex container, flex item이 부모 자식 형태가 되어야만 flex가 제대로 동작한다.
@@ -58,7 +58,7 @@ flex-direction: column
 출처 : https://flexboxfroggy.com/#ko 9단계    
 
 ## Container - flex–wrap
-- 요소들이 강제로 한줄에 배치되게 할 것인지, 또는 가능한 영역 내에서 벗어나지 않고 여러행으로 나누어 표현 할 것인지 결정하는 속성입니다. 
+- 요소들이 강제로 한줄에 배치되게 할 것인지, 또는 가능한 영역 내에서 벗어나지 않고 여러행으로 나누어 표현 할 것인지 결정하는 속성
 
 ### 값
 - nowrap : 기본값, 한줄 배치
@@ -80,8 +80,8 @@ flex-wrap: wrap
 ```
 #pond {
   display: flex;
-flex-direction: column;
-flex-wrap: wrap;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 ```
 출처 : https://flexboxfroggy.com/#ko 19단계    
@@ -90,7 +90,7 @@ flex-wrap: wrap;
 ```
 #pond {
   display: flex;
-flex-flow: column wrap
+  flex-flow: column wrap
 }
 ```  
 출처 : https://flexboxfroggy.com/#ko 20단계    
@@ -107,7 +107,7 @@ flex-flow: column wrap
 }
 
 .yellow {
-order: 1
+  order: 1
 }
 ```
 출처 : https://flexboxfroggy.com/#ko 14단계  
@@ -326,6 +326,16 @@ order: 1;
 align-self: flex-end;
 }
 ```
-출처 : https://flexboxfroggy.com/#ko 16단계  
+출처 : https://flexboxfroggy.com/#ko 16, 17단계  
 
 
+```
+#pond {
+  display: flex;
+flex-direction: column-reverse;
+justify-content: center;
+flex-flow: column-reverse wrap-reverse;
+align-content: space-between;
+}
+```
+출처 : https://flexboxfroggy.com/#ko 24단계
