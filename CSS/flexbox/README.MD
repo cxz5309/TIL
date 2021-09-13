@@ -25,7 +25,7 @@
 - container에서만 사용하는 속성, item에서만 사용하는 속성이 따로 있기 때문에 알맞게 넣어주어야 잘 동작한다.
 - 일반 flexbox는 1차원 공간이기 때문에 main axis는 가로축 기본값이고 cross axis가 세로축 역할을 해준다.
 
-## Container - display (내부 display 요소) <a id="in_display">#</a>
+## Container - display: flex (내부 display 요소) <a id="in_display_flex">#</a>
 - <a href="../레이아웃/README.MD#out_display">#외부 display 요소</a>
 - `block`, `inline`, `inline-block`는 `<display-outside>`의 display값 요소이고 `<display-inside>` 의 값 요소는 flex와 관련이 있다.  
 - `-(대쉬)`를 사용하여 바깥쪽 요소와의 관계와 안쪽의 관계를 동시에 정의할 수 있다.

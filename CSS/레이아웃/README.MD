@@ -1,7 +1,8 @@
 # 레이아웃
 
 ## display (외부 디스플레이 요소, 박스 요소) <a id="out_display">#</a>
-- <a href="../flexbox/README.MD#in_display">#내부 display 요소</a>  
+- <a href="../flexbox/README.MD#in_display_flex">#내부 display 요소-flex</a>  
+- <a href="../grid/README.MD#in_display_grid">#내부 display 요소-grid</a>  
 - 외부 디스플레이 요소(inline, block)와 내부 디스플레이 요소, 박스 요소 등을 설정한다.
 > - 내부 디스플레이 요소는 이후 등장할 flex에서 사용한다.
 
