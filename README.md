@@ -29,6 +29,7 @@
 - ### [다크모드](JS/다크모드/README.MD)
 - ### [api란](JS/api란/README.MD)
 - ### [JWT](JS/JWT/README.MD)
+- ### [session을 db에 저장하는 이유](JS/session을%20db에%20저장하는%20이유/readme.md)
 
 ## 알고리즘
 - ### [위상정렬](알고리즘/위상정렬/README.MD)
