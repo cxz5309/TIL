@@ -31,6 +31,8 @@
 - ### [JWT](JS/JWT/README.MD)
 - ### [session을 db에 저장하는 이유](JS/session을%20db에%20저장하는%20이유/readme.md)
 - ### [express.js req, res 객체](JS/express.js%20req,%20res%20객체/readme.md)
+- ### [REST vs SOAP vs GraphQL](JS/REST%20vs%20SOAP%20vs%20GraphQL/README.MD)
+- ### [package.json 속성](JS/package.json%20속성/README.MD)
 
 ## 알고리즘
 - ### [위상정렬](알고리즘/위상정렬/README.MD)
