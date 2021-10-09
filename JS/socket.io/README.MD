@@ -4,7 +4,7 @@
 
 ## 웹소켓의 배경
 - 전형적인 브라우저 렌더링 방식은 request에 대한 response를 받은 후 브라우저의 화면을 깨끗하게 지우고 받은 내용을 새로 표시하는 방식이다. 이 방식은 브라우저의 깜빡임이 생기고 어느정도 지연이 생기게 된다.
-- 이것에 대한 해결 방법 중 하나로 요즘 나오는 <a href="/React/NEXT.js/READEME.MD#csr">CSR</a>이 있지만 다른 방식으로 푸는 방법도 많이 연구되었다.
+- 이것에 대한 해결 방법 중 하나로 요즘 나오는 <a href='../CSR과 SSR/README.MD#csr'>CSR</a>이 있지만 다른 방식으로 푸는 방법도 많이 연구되었다.
 - 상호작용하는 웹 서비스를 위해 Long Polling, Stream 등 다양한 방법이 연구되었는데 이러한 방식은 브라우저가 HTTP 요청를 보내고 웹 서버가 이 요청에 대한 HTTP 응답를 보내는 **단방향** 메세지 교환 '규칙'을 변경하지 않고 구현한 방식이다. 그렇기 때문에 상호작용하는 웹 페이지를 복잡하고 어려운 코드로 구현해야 했다.
 
 ![long polling](http://www.secmem.org/assets/images/websocket-socketio/polling.png)  
