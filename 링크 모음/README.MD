@@ -111,6 +111,8 @@ https://jekyllrb-ko.github.io/
 #### gatsby
 https://www.gatsbyjs.com/
 https://sungchul-p.github.io/gatsby-blog-starter
+#### mysql 서버 적용
+https://taetoungs-branch.tistory.com/95
 
 #### ESLint-Prettier-적용
 https://velog.io/@recordboy/ESLint-Prettier-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0   
