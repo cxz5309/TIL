@@ -290,3 +290,13 @@ Executing (default): INSERT INTO `Comments` (`commentId`,`postId`,`userId`,`cont
 ![image6](/public/JS/sequelize6.PNG)  
 
 성공🎉  
+
+
+# Sequelize2
+
+> 프로젝트 2개만에 시퀄라이즈 마스터가 되어버린 나
+> ...?
+
+## model 구조
+
+<!-- Todo -->
