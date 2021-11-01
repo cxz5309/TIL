@@ -46,30 +46,77 @@ const updateReview = async (req, res) => {
 
 그 이유는 콜백 내에서 오류를 던지면 작동하지 않는다고 한다.  
 
-[https://stackoverflow.com/questions/27794750/node-js-with-express-throw-error-vs-nexterror](https://stackoverflow.com/questions/27794750/node-js-with-express-throw-error-vs-nexterror)
+[https://stackoverflow.com/questions/27794750/node-js-with-express-throw-error-vs-nexterror](https://stackoverflow.com/questions/27794750/node-js-with-express-throw-error-vs-nexterror)  
+- next(err)를 이용하여 에러를 보내는 상태  
+[https://yohanpro.com/posts/nodejs/error-handling](https://yohanpro.com/posts/nodejs/error-handling)  
+next와 미들웨어를 이용하여 콜백 내의 에러도 제어해준다.  
 
-### 해결
-[해결](https://github.com/docker/for-win/issues/1825#issuecomment-433719346)
-- docker 연결시 daemon 설정이 window로 되어있지 않아서 생기는 문제인것 같다.
-1. 도커 재설치 - 실패
-2. 
 ```
-cd "C:\Program Files\Docker\Docker"
-./DockerCli.exe -SwitchDaemon
-```
-3. 해결 확인
-```
-실패
-docker ps
-//./pipe/docker_engine: The system cannot find the file specified
-성공
-docker ps
-현재 가동중인 컨테이너 출력
-```
+const updateReview = async (req, res) => {
+  try {
+    const { productId } = req.params
+    const { review, reviewsId, } = req.body;
+    const { user_id } = res.locals;
+    const thisReview = await Reviews.findByPk(reviewsId);
 
-- 예전에 docker 쓸 때 리눅스로 설정을 변경한 적이 있었는데 그 때문인 것 같다. 오랜만에 써서 까맣게 잊고 있었다.
+		 if (thisReview.productId !== productId || thisReview.user_id !== user_id)
+      throw new Error("서버 검증 오류");
+    }
+    await thisReview.update({ review: review })
+			.then(() => {
+        return res.send({ result: true, msg: "댓글이 수정되었습니다" });
+      })
+      .catch((err) => {
+        if (err) next(new Error("db수정 실패, 개발팀에 문의해주세요"));
+      });
+  } catch (error) {
+    return next(new Error(error.message));
+  }
+};
+```  
+전체 에러를 컨트롤해주는 미들웨어도 만든다  
+```
+const errorHandler = (err, req, res, next) => {
+  console.error(err.stack);
+  res.status(err.status || 500).send({ result: false, msg: `code ${err.status || 500}: ${err.message}` });
+}
+```
+대부분의 에러를 커스텀할 수 있게 되었지만 상태코드가 마음에 들지 않았다.  
+### 최종 해결
+- http-errors의  createError함수 사용
+```
+var createError = require('http-errors');
 
----
+const myError = (status, message) => {
+  return createError(status, message);
+}
+
+module.exports = myError;
+```
+```
+const updateReview = async (req, res) => {
+  try {
+    const { productId } = req.params
+    const { review, reviewsId, } = req.body;
+    const { user_id } = res.locals;
+    const thisReview = await Reviews.findByPk(reviewsId);
+
+		 if (thisReview.productId !== productId || thisReview.user_id !== user_id)
+      throw new Error("서버 검증 오류");
+    }
+    await thisReview.update({ review: review })
+			.then(() => {
+        return res.send({ result: true, msg: "댓글이 수정되었습니다" });
+      })
+      .catch((err) => {
+        if (err) next(myError(500, "db수정 실패, 개발팀에 문의해주세요"));
+      });
+  } catch (error) {
+    return next(myError(400, err.message));
+  }
+};
+```
+대부분의 에러 메세지와 상태 코드를 커스텀할 수 있게 되었다  
 
 
 ## ERROR 2003 (HY000): Can't connect to MySQL server on 'localhost' (10061)
