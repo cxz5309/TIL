@@ -3,13 +3,13 @@
 - 서버와 클라이언트 사이의 중계 역할을 해주는 서버
 
 ## Forward Proxy
-[proxy1](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FPbhvn%2FbtqBzj4CWaB%2FLVl1kFgdRPYq3DLbEeGn10%2Fimg.jpg)  
+![proxy1](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FPbhvn%2FbtqBzj4CWaB%2FLVl1kFgdRPYq3DLbEeGn10%2Fimg.jpg)  
 - 일반적인 프록시 서버는 포워드 프록시이다.
 - 클라이언트가 서버에 요청을 보낼 때 직접 요청하지 않고 프록시 서버를 거쳐 프록시 서버에서 요청을 한다.
 - 클라이언트의 ip를 감출 수 있어 보안에 도움이 된다.
 
 ## Reverse Proxy
-[proxy2](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FsoZxz%2FbtqBvsBdrub%2F3lKN2HHrkzEnxZecoArlFK%2Fimg.jpg)  
+![proxy2](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FsoZxz%2FbtqBvsBdrub%2F3lKN2HHrkzEnxZecoArlFK%2Fimg.jpg)  
 - 포워드 프록시의 반대로 서버가 클라이언트로 응답을 줄 때 프록시 서버를 거쳐 보낸다. 
 - 서버의 ip를 감출 수 있다.
 

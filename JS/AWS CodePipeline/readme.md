@@ -9,16 +9,25 @@
 ![codepipeline](/public/JS/codepipeline1.PNG)  
 
 ## 1. 기본 설정
+
 ![codepipeline2](/public/JS/codepipeline2.PNG)  
-- 기본적인 파이프라인 이름을 설정해준다. iam 서비스 역할도 연결시켜야하는데 파이프라인 생성시 맞춤 역할을 생성해줄 수 있어 그 방법으로 하였다.(너무 많이 하면 과하게 많아지므로 설정해 두는 것을 권장)
+
+- 기본적인 파이프라인 이름을 설정해준다. iam 서비스 역할도 연결시켜야하는데 파이프라인 생성시 맞춤 역할을 생성해줄 수 있어 그 방법으로 하였다.(너무 많이 하면 과하게 많아지므로 설정해 두는 것을 권장)  
+- 
 ## 2. CodeCommit
-![codepipeline3](/public/JS/codepipeline3.PNG)  
+
+![codepipeline3](/public/JS/codepipeline3.PNG)    
 - CodeCommit 단계. AWS는 CodeCommit을 사용하는 방법을 권장하지만 대부분 깃허브를 사용하기 때문에 Github2를 사용하면 된다. 
-![codepipeline4](/public/JS/codepipeline4.PNG)  
-깃허브에 연결을 누르면 깃허브 설정을 클릭만으로 알아서 해준다.
+
+![codepipeline4](/public/JS/codepipeline4.PNG)   
+깃허브에 연결을 누르면 깃허브 설정을 클릭만으로 알아서 해준다.  
+
 ## 3. CodeBuild
-![codepipeline5](/public/JS/codepipeline5.PNG)  
+
+![codepipeline5](/public/JS/codepipeline5.PNG)   
+
 - CodeBuilde단계. 빌드한 프로젝트의 환경 설정, 환경변수 등을 설정한다. 
+
 ![codepipeline6](/public/JS/codepipeline6.PNG)  
 ![codepipeline7](/public/JS/codepipeline7.PNG)  
 ![codepipeline8](/public/JS/codepipeline8.PNG)  
@@ -92,13 +101,18 @@ artifacts:
 - CloudWatch
 - CloudWatch 로그 또는 s3로그를 선택할 수 있는데 사용성에서 CloudWatch 로그를 권장하고 로그를 선택하지 않는건 빌드 실패 원인을 찾기 힘들기 때문에 매우 권장하지 않는다.
 ## 4. CodeDeploy
-- CodeDeploy 단계, 다양한 배포 공급자를 고를 수 있는데 CodeDeploy선택 전에 CodeDeploy로 가서 미리 애플리케이션과 배포 그룹을 생성하고 와야 한다. 
-![codepipeline9](/public/JS/codepipeline9.PNG)  
-- 애플리케이션은 ec2, lambda, ecs 중 선택 가능한데 ecs는 ecs에서 설정 시 자동으로 만들어주기 때문에 할 필요가 없다.
-![codepipeline10](/public/JS/codepipeline10.PNG)  
-![codepipeline11](/public/JS/codepipeline11.PNG)  
-![codepipeline12](/public/JS/codepipeline12.PNG)  
-- 이후 배포 그룹을 생성해야 한다
+
+- CodeDeploy 단계, 다양한 배포 공급자를 고를 수 있는데 CodeDeploy선택 전에 CodeDeploy로 가서 미리 애플리케이션과 배포 그룹을 생성하고 와야 한다.  
+
+![codepipeline9](/public/JS/codepipeline9.PNG)   
+
+- 애플리케이션은 ec2, lambda, ecs 중 선택 가능한데 ecs는 ecs에서 설정 시 자동으로 만들어주기 때문에 할 필요가 없다.  
+- 
+![codepipeline10](/public/JS/codepipeline10.PNG)   
+![codepipeline11](/public/JS/codepipeline11.PNG)   
+![codepipeline12](/public/JS/codepipeline12.PNG)   
+
+- 이후 배포 그룹을 생성해야 한다 
 #### 서비스 역할
 - 서비스의 역할 iam을 선택한다. 자동 생성이 아니므로 직접 만들어서 권한을 주어야 하며 이후 배포 파일이 어디를 액세스 해야 하는지, 어떤 권한이 필요한지 잘 선택하지 않으면 빌드 오류가 발생한다.
 #### 배포 유형
@@ -108,7 +122,9 @@ artifacts:
 #### 배포 설정
 #### 로드밸런서
 - 로드밸런서 설정을 해줄 수 있다. 로드밸런서도 미리 만들어주어야 설정이 가능하다.
-![codepipeline12](/public/JS/codepipeline12.PNG)
+
+![codepipeline12](/public/JS/codepipeline12.PNG)  
+
 - 현재 ecs로 연결된 배포 설정으로 블루/그린 배포를 위해 로드밸런서를 설정해주었다. 
 
 #### appspec.yaml
