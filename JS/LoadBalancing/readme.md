@@ -1,6 +1,11 @@
 # LoadBalancing
 - 부하 분산
 - 여러 대의 서버를 두는 서비스에서 필요하며 마이크로 서비스가 대세가 된 현재 거의 필수적으로 사용하는 기능이다.
+
+
+---
+
+![scale](https://post-phinf.pstatic.net/MjAxOTEyMTBfMjk1/MDAxNTc1OTU1MDI2NTY4.Zxj8nWGb6G6jtHDAZPPDf-dPZnpb_hsd7ydWw5lW7vAg.AucOXPJnmLyGiHr8KpVD9Dsy59FsWv5p7qJnSyW_YFAg.JPEG/%EB%A1%9C%EB%93%9C%EB%B0%B8%EB%9F%B0%EC%8B%B1_%EC%8A%A4%EC%BC%80%EC%9D%BC.jpg?type=w1200)
 ## Scale-up
 - 현재 사용중인 서버 자체의 가용성을 늘리는 것
 - ec2 서버를 micro에서 large로 업그레이드하는 것을 예로 들 수 있다.
@@ -8,6 +13,8 @@
 ## Scale-out
 - 사용중인 서버를 추가해서 새 서버에 트래픽을 분산하는 것
 - 트래픽을 분산하는 것 자체가 로드밸런싱이며 Scale-out 방식을 사용했을 경우 로드밸런싱이 꼭 필요하다.
+
+---
 
 ## 로드밸런싱 알고리즘
 - 라운드로빈 방식(Round Robin Method)
@@ -33,17 +40,20 @@
 ![ecs19](/public/JS/ecs19.png)    
 따라서 교차 영역 로드밸런싱을 통해 각각에 동일한 수준의 트래픽을 분산하게 하여 부담을 줄일 수 있다.
 
+---
 
 ## L4, L7
+![L4](https://post-phinf.pstatic.net/MjAxOTEyMTBfNCAg/MDAxNTc1OTU1MzY3OTM2.nG91HOEOh6Sc1AuUgbN3O4pcnEI-rh24UKSrrrjkrcsg.VcG18MidW4az7Oh0RQfRPLDBHNRyGayE1BsQxDImL3Ig.JPEG/L4-%EB%A1%9C%EB%93%9C%EB%B0%B8%EB%9F%B0%EC%8B%B1.jpg?type=w1200)   
+
+![L7](https://post-phinf.pstatic.net/MjAxOTEyMTBfMjA1/MDAxNTc1OTU1MzgxODY5.odnG4CRES0e5bH7sOKyWRP1c8uO_XC4VX9A3HPeI1JQg.lNL2eJYbMz6NX1e5YFzfHDMQHn4YrdOJR2VYHmq5e1Ig.JPEG/L7-%EB%A1%9C%EB%93%9C%EB%B0%B8%EB%9F%B0%EC%8B%B1.jpg?type=w1200)   
+
 - 주로 L4는 TCP/UDP단 로드밸런싱, L7은 HTTP/HTTPS단 로드밸런싱을 한다. 주로 하는 역할이며 사실상 상위 계층은 하위 계층의 로드밸런싱 기능을 모두 수행 할 수 있다.
 - 따라서 일반적으로 L7 로드밸런서가 L4 로드밸런서보다 비싸지만 조금 더 정교한 클라이언트별 로드밸런싱이 가능하며 DoS/DDoS와 같은 비정상적인 트래픽, 바이러스 필터링 등이 가능하다.
-- 하지만 L7 로드밸런서가 L4로드밸런서보다 느리기 때문에 현명한 선택이 필요하다.
-ex) - L4 예시: IP+Port > 213.12.32.123:80, 213.12.32.123:1024  
-ex) - L7 예시 : IP+Port+패킷 내용을 한번에 표현한다. 213.12.32.123:80, 213.12.32.123:1024 + GET/ img/aaa.jpg  
+- 하지만 L7 로드밸런서가 L4로드밸런서보다 느리기 때문에 현명한 선택이 필요하다.   
 
+ex) L4 예시: IP+Port > 213.12.32.123:80, 213.12.32.123:1024   
+ex) L7 예시 : IP+Port+패킷 내용을 한번에 표현한다. 213.12.32.123:80, 213.12.32.123:1024 + GET/ img/aaa.jpg   
 
-
-출처: 
-> 출처  
-> https://m.post.naver.com/viewer/postView.nhn?volumeNo=27046347&memberNo=2521903  
-> https://vaert.tistory.com/189 
+> 출처   
+> https://m.post.naver.com/viewer/postView.nhn?volumeNo=27046347&memberNo=2521903   
+> https://vaert.tistory.com/189  

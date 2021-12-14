@@ -4,39 +4,46 @@
 
 - AWS의 CI/CD 툴로써 AWS CodeCommit, AWS CodeBuild, AWS CodeDeploy를 파이프라인처럼 하나로 연결시켜 관리를 도와준다.
 - CodeCommit 등은 GitHub로 대체되기도 하고 CodeBuild 단계를 스킵하거나 새로운 단계를 추가하는 등 유연한 설계가 가능하다.
-- 프리티어에서 활성 파이프라인 1개가 무료이고 사용한 만큼 비용을 지불한다. (하지만 CodeBuild에서 미친듯이 까먹게 된다는건 안써져있다.)
+- 프리티어에서 활성 파이프라인 1개가 무료이고 사용한 만큼 비용을 지불한다. (하지만 CodeBuild에서 미친듯이 까먹게 된다는건 안써져있다.)  
 
-![codepipeline](/public/JS/codepipeline1.PNG)  
+
+<img src="https://user-images.githubusercontent.com/42149645/145908600-c966f4b9-6117-4f79-838e-ae321dd699a0.PNG" alt="codepipeline1" width="800" height="auto"/>
 
 ## 1. 기본 설정
 
-![codepipeline2](/public/JS/codepipeline2.PNG)  
+<img src="https://user-images.githubusercontent.com/42149645/145908654-9f824f99-7a22-40b5-b74f-f4b96bcf26ed.PNG" alt="codepipeline2" width="800" height="auto"/>
 
-- 기본적인 파이프라인 이름을 설정해준다. iam 서비스 역할도 연결시켜야하는데 파이프라인 생성시 맞춤 역할을 생성해줄 수 있어 그 방법으로 하였다.(너무 많이 하면 과하게 많아지므로 설정해 두는 것을 권장)  
-- 
+- 기본적인 파이프라인 이름을 설정해준다. 
+- iam 서비스 역할도 연결시켜야하는데 파이프라인 생성시 맞춤 역할을 생성해줄 수 있어 그 방법으로 하였다.(너무 많이 하면 과하게 많아지므로 설정해 두는 것을 권장)  
+
 ## 2. CodeCommit
 
-![codepipeline3](/public/JS/codepipeline3.PNG)    
-- CodeCommit 단계. AWS는 CodeCommit을 사용하는 방법을 권장하지만 대부분 깃허브를 사용하기 때문에 Github2를 사용하면 된다. 
 
-![codepipeline4](/public/JS/codepipeline4.PNG)   
-깃허브에 연결을 누르면 깃허브 설정을 클릭만으로 알아서 해준다.  
+<img src="https://user-images.githubusercontent.com/42149645/145908658-150b9066-6822-4635-b199-9a82cbf238a4.PNG" alt="codepipeline3" width="800" height="auto"/>    
+
+- CodeCommit 단계. AWS는 CodeCommit을 사용하는 방법을 권장하지만 대부분 깃허브를 사용하기 때문에 Github(버전2)를 사용하면 된다. 
+
+<img src="https://user-images.githubusercontent.com/42149645/145908663-75ade4d1-6c97-4e05-943c-8b9752035f5a.PNG" alt="codepipeline4" width="800" height="auto"/>       
+
+- 깃허브에 연결을 누르면 깃허브 설정을 클릭만으로 알아서 해준다.  
 
 ## 3. CodeBuild
 
-![codepipeline5](/public/JS/codepipeline5.PNG)   
+<img src="https://user-images.githubusercontent.com/42149645/145908665-440c3fc9-cd8c-49a8-85e4-c46879eca569.PNG" alt="codepipeline5" width="800" height="auto"/>        
 
 - CodeBuilde단계. 빌드한 프로젝트의 환경 설정, 환경변수 등을 설정한다. 
 
-![codepipeline6](/public/JS/codepipeline6.PNG)  
-![codepipeline7](/public/JS/codepipeline7.PNG)  
-![codepipeline8](/public/JS/codepipeline8.PNG)  
+<img src="https://user-images.githubusercontent.com/42149645/145908665-440c3fc9-cd8c-49a8-85e4-c46879eca569.PNG" alt="codepipeline6" width="800" height="auto"/>        
 
-#### 환경
+<img src="https://user-images.githubusercontent.com/42149645/145908677-ad826c51-95a9-4c68-944c-cbc33dd1c13c.PNG" alt="codepipeline7" width="800" height="auto"/>        
+
+<img src="https://user-images.githubusercontent.com/42149645/145908680-2314de13-bec0-41f1-9729-23532a9927d2.PNG" alt="codepipeline8" width="800" height="auto"/>        
+
+### 환경
 - 사용하는 운영체제 타입을 고를 수 있으며 리눅스와 우분투가 기본이다. 도커 이미지 지정을 사용할 경우 리눅스가 고정이며 도커 이미지를 사용할 경우 권한이 있음을 눌러 권한을 주어야 한다.  
 - 혹시라도 현재 사용중인 ec2 운영체제 타입이 안맞을 경우 문제가 생긴다.  
 - 그 외에 빌드 제한시간, 인증서, vpc, 환경변수 등을 추가로 선택할 수 있다. 환경변수는 빌드와 배포 단계에서 함께 쓰기 위해(앱 단에서 test와 product 환경변수를 라우팅함) ecs에서 적용시켰다.
-#### buildspec
+### buildspec
 - 가장 중요한 빌드 설정. 빌드 단계에 들어오면 프로젝트 루트에 buildspec.yaml을 자동으로 찾아 사용하거나 현재 화면에서 명령을 삽입할 수 있다. 
 - buildspec 명령어는 yaml 명령어를 사용하는데 빌드 각 단계당 실행 명령어, artifact 설정을 하면 된다.
 - ec2 단일 서버 CodeBuild, nodejs
@@ -97,37 +104,38 @@ artifacts:
     - appspec.yaml
     - taskdef.json
 ```
-#### 로그
-- CloudWatch
-- CloudWatch 로그 또는 s3로그를 선택할 수 있는데 사용성에서 CloudWatch 로그를 권장하고 로그를 선택하지 않는건 빌드 실패 원인을 찾기 힘들기 때문에 매우 권장하지 않는다.
+### 로그
+- CloudWatch 로그 또는 s3로그를 선택할 수 있는데 사용성에서 CloudWatch 로그를 권장하고 로그를 아무것도 선택하지 않는건 빌드 실패 원인을 찾기 힘들기 때문에 매우 권장하지 않는다.
 ## 4. CodeDeploy
 
 - CodeDeploy 단계, 다양한 배포 공급자를 고를 수 있는데 CodeDeploy선택 전에 CodeDeploy로 가서 미리 애플리케이션과 배포 그룹을 생성하고 와야 한다.  
 
-![codepipeline9](/public/JS/codepipeline9.PNG)   
+<img src="https://user-images.githubusercontent.com/42149645/145908681-cb2e6d8e-5bc7-4ffa-92e0-73fdc77b7749.PNG" alt="codepipeline9" width="800" height="auto"/>      
 
 - 애플리케이션은 ec2, lambda, ecs 중 선택 가능한데 ecs는 ecs에서 설정 시 자동으로 만들어주기 때문에 할 필요가 없다.  
-- 
-![codepipeline10](/public/JS/codepipeline10.PNG)   
-![codepipeline11](/public/JS/codepipeline11.PNG)   
-![codepipeline12](/public/JS/codepipeline12.PNG)   
+
+<img src="https://user-images.githubusercontent.com/42149645/145908684-42377eee-e09b-4b0f-ba35-b8a52eb1f19d.PNG" alt="codepipeline10" width="800" height="auto"/>      
+
+<img src="https://user-images.githubusercontent.com/42149645/145908685-ff2dfaa4-89cd-4ad8-b598-5a10812d3cc1.PNG" alt="codepipeline11" width="800" height="auto"/>      
+
+<img src="https://user-images.githubusercontent.com/42149645/145908697-db7609c6-11fb-4c4e-81b4-0c87573ad274.PNG" alt="codepipeline12" width="800" height="auto"/>      
 
 - 이후 배포 그룹을 생성해야 한다 
-#### 서비스 역할
+### 서비스 역할
 - 서비스의 역할 iam을 선택한다. 자동 생성이 아니므로 직접 만들어서 권한을 주어야 하며 이후 배포 파일이 어디를 액세스 해야 하는지, 어떤 권한이 필요한지 잘 선택하지 않으면 빌드 오류가 발생한다.
-#### 배포 유형
+### 배포 유형
 - 기본과 블루/그린이 있는데 블루/그린 배포를 하게 되면 ec2 인스턴스가 최소 2개 필요하며 그룹 설정을 따로 해주어야 한다.
-#### 환경 구성
+### 환경 구성
 - Auto Scaling도 마찬가지로 인스턴스를 추가하여 Scale up을 동적으로 해준다. ec2 인스턴스를 ec2 name 등의 키로 찾을 수 있기 때문에 ec2에 이름 설정을 해주면 좋다.
-#### 배포 설정
-#### 로드밸런서
+### 배포 설정
+### 로드밸런서
 - 로드밸런서 설정을 해줄 수 있다. 로드밸런서도 미리 만들어주어야 설정이 가능하다.
 
-![codepipeline12](/public/JS/codepipeline12.PNG)  
+<img src="https://user-images.githubusercontent.com/42149645/145908699-d0fc6d14-881e-4141-9cb3-2f69b37a3489.PNG" alt="codepipeline13" width="800" height="auto"/>      
 
 - 현재 ecs로 연결된 배포 설정으로 블루/그린 배포를 위해 로드밸런서를 설정해주었다. 
 
-#### appspec.yaml
+### appspec.yaml
 - 빌드와 동일하게 배포에도 설정 파일이 필요한데 appspec.yaml 파일을 통해 설정한다.
 - ecs에서는 이미지파일 설정인 taskdef.json 파일도 필요하다.
 

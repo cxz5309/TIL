@@ -77,6 +77,7 @@
 ```
 ### scripts의 예약 key
 > npm은 다음의 scripts를 package.json 파일의 “scripts” 속성에서 지원한다.
+
 - prepublish: 패키지가 압축되어 배포되기 전에 실행합니다(뿐만 아니라 인자 없이 npm install 을 실행할 때에도 적용됩니다).
 - prepare: 인자 없이 npm install 할 때와 git dependencies 를 설치할 때, 이 둘을 패키지가 압축되어 배포되기 전에 실행합니다. 이 명령은 republish 다음 prepublishOnly 전에 실행됩니다.
 - prepublishOnly: 패키지가 압축되어 배포되기 전에 실행하지만, npm publish 일 때만 실행합니다.
@@ -102,10 +103,12 @@
 - module의 package.json의 dependencies 속성은 dependencies (**이 모듈이 사용하는 다른 모듈**)가 정의되는 곳이다. 
 - dependencies 속성은 각 종속성을 사용해야하는 이름과 버전을 가진 객체를 사용한다. 앞에서 정의한 version 속성으로 물건을 연결하면 모듈에 필요한 버전이 정의된다.
 - 패키지 버전에 포함 된 캐럿 (^) 및 물결표 (~)는 자주 찾을 수 있다. 이 특수문자들은 버전 범위 표기법이다.
-> - 버전 범위 표기법(semver)  
-> version : 명시한 version 과 일치해야 한다.  
-> >version : 명시한 version 보다 높아야 한다.  
-> >=version  
+
+
+> - 버전 범위 표기법(semver)   
+> version : 명시한 version 과 일치해야 한다.    
+> &#62;version : 명시한 version 보다 높아야 한다.   
+> &#62;=version  
 > &#60;version  
 > &#60;=version  
 > ~version : 명시한 version 과 근사한 버전. 자세한 내용은 semver 참조.  
@@ -114,7 +117,7 @@
 > http://... : 지정된 url로 패키지 설치시에 다운로드되고 설치된다.  
 > &#42; : 모든 버전  
 > "" : &#42; 와 같음  
-> version1 - version2 : >= version1 <= version2 과 같음.  
+> version1 - version2 : &#62;= version1 <= version2 과 같음.  
 > range1 || range2 : range1 또는 range2  
 > git... : Git url을 지정할 수도 있다.  
 > user/repo : npm 버전 1.1.65 부터 GitHub url을 "foo": "user/foo-project" 와 같이 사용할 수 있다.  
