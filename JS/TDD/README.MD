@@ -20,7 +20,7 @@
 - 이 갭이 커질수록 문제가 되고 내가 그 갭을 모르면 더 큰 문제가 생긴다.
 
 ## TDD 개발 주기
-[image](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmG0Pb%2FbtqBZMj04hL%2FiFrPHyeudxXYfxkWANylY0%2Fimg.png)  
+![image](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmG0Pb%2FbtqBZMj04hL%2FiFrPHyeudxXYfxkWANylY0%2Fimg.png)  
 - <Red>단계에서는 실패하는 테스트 코드를 먼저 작성한다. 
 - <Green>단계에서는 테스트 코드를 성공시키기 위한 실제 코드를 작성한다. 
 - <Yellow>단계에서는 중복 코드 제거, 일반화 등의 리팩토링을 수행한다. 
