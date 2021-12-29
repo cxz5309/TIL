@@ -142,7 +142,7 @@ artifacts:
 ---
 
 - ec2 단일 서버, nodejs 환경, pm2로 실행, appspce.yaml
-```
+```yml
 version: 0.0
 os: linux
 files:
@@ -162,7 +162,7 @@ hooks:
 ```
 각 단계마다 설정 파일의 위치를 추가로 정할 수 있다.
 - /code_deploy/application_stop.sh
-```
+```sh
 npm uninstall -g pm2
 
 if pgrep node; 
@@ -170,7 +170,7 @@ then pkill node;
 fi
 ```
 - /code_deploy/before_install.sh
-```
+```sh
 #!/bin/bash
 
 # EC2 서버에 node와 nvm 설치하기
@@ -192,8 +192,10 @@ sudo rm -rf /home/ubuntu/mingijuk/node_modules
 sudo rm -rf /etc/localtime
 sudo ln -s /usr/share/zoneinfo/Asia/Seoul /etc/localtime
 ```
+
 - /code_deploy/application_start.sh 
-```
+
+```sh
 #!/bin/bash
 
 # EC2 서버에 node와 nvm 설치하기
@@ -229,7 +231,7 @@ pm2 save
 ---
 
 - ecs 블루/그린 배포, https 포트포워딩 ecr에서 이미지 가져오기, nodejs환경, appspce.yaml
-```
+```yml
 version: 0.0
 Resources:
   - TargetService:
@@ -241,7 +243,7 @@ Resources:
           ContainerPort: 8080
 ```
 - taskdef.json (중요 정보가 많아 자습서로 대체함)
-```
+```json
 {
     "executionRoleArn": "arn:aws:iam::account_ID:role/ecsTaskExecutionRole",
     "containerDefinitions": [
